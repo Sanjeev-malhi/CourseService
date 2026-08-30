@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CourseService.Domain.Entites
+﻿namespace CourseService.Domain.Entites
 {
     public class Course
     {
