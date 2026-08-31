@@ -1,6 +1,8 @@
 ﻿using CourseService.Application.Courses.Commands.CourseCommand;
+using CourseService.Application.Courses.Commands.DeleteCourse;
 using CourseService.Application.Courses.Commands.UpdateCourse;
 using CourseService.Application.Courses.DTOs;
+using CourseService.Application.Courses.Queries.GetAllCourses;
 using CourseService.Application.Courses.Queries.GetCourseById;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -42,6 +44,22 @@ namespace CourseService.API.Controllers
         {
             var commandWithId = command with { Id = id };
             await _mediator.Send(commandWithId, cancellationToken);
+            return NoContent();
+        }
+
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<IList<CourseDto>>> GetAllCourses(CancellationToken cancellationToken)
+        {
+            var courses = await _mediator.Send(new GetCoursesQuery(), cancellationToken);
+            return Ok(courses);
+        }
+
+        [HttpDelete("{id:guid}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<ActionResult> DeleteCourse(Guid id, CancellationToken cancellationToken)
+        {
+            await _mediator.Send(new DeleteCourseCommand(id), cancellationToken);
             return NoContent();
         }
     }
