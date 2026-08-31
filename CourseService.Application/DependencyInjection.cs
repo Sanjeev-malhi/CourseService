@@ -13,6 +13,9 @@ namespace CourseService.Application
                     typeof(DependencyInjection).Assembly);
             });
 
+            services.AddAutoMapper(cfg => { },
+                     typeof(DependencyInjection).Assembly);
+
             return services;
         }
     }
