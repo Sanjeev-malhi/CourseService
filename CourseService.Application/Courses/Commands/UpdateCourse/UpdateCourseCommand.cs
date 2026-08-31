@@ -1,6 +1,7 @@
-﻿namespace CourseService.Application.Courses.Commands.UpdateCourse
+﻿using MediatR;
+
+namespace CourseService.Application.Courses.Commands.UpdateCourse
 {
-    public class UpdateCourseCommand
-    {
-    }
+    public record UpdateCourseCommand(Guid Id, string Name, string Description, decimal Price, bool IsPublished) 
+        : IRequest<Unit>;
 }
