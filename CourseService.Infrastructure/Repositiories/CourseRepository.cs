@@ -27,12 +27,12 @@ namespace CourseService.Infrastructure.Repositiories
 
         public async Task<List<Course>> GetAllAsync(CancellationToken cancellationToken)
         {
-            return await _context.Courses.ToListAsync(cancellationToken);
+            return await _context.Courses.AsNoTracking().ToListAsync(cancellationToken);
         }
 
         public async Task<Course> GetByIdAsync(Guid id, CancellationToken cancellationToken)
         {
-            return await _context.Courses
+            return await _context.Courses.AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
         }
 
