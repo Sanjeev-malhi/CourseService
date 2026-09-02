@@ -21,6 +21,6 @@ namespace CourseService.Domain.Entites
 
         public LessonType Type { get; set; }
 
-        public Module Module { get; set; } = null!;
+        public Modules Module { get; set; } = null!;
     }
 }

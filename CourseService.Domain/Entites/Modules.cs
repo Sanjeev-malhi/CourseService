@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CourseService.Domain.Entites
 {
-    public class Module
+    public class Modules
     {
         public Guid Id { get; set; }
 
