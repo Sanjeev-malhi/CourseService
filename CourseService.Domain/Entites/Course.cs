@@ -16,6 +16,6 @@
 
         public DateTime LastModified { get; set; }
 
-        public ICollection<Module> Modules { get; set; } = new List<Module>();
+        public ICollection<Modules> Modules { get; set; } = new List<Modules>();
     }
 }

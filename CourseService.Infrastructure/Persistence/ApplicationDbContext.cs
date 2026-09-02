@@ -15,6 +15,8 @@ namespace CourseService.Infrastructure.Persistence
         }
         public DbSet<Course> Courses => Set<Course>();
 
+        public DbSet<Modules> Modules => Set<Modules>();
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
